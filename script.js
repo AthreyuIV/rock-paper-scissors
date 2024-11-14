@@ -1,76 +1,109 @@
-// !!!Change instructions into psuedocode!!!
+// Create FUNCTION named getComputerChoice
+function getComputerChoice() {
+    // Create a const called randomNumber = Math.floor(Math.random() * 10)
+    const randomNumber = Math.floor(Math.random() * 10);
+    // IF randomNumber is <= 3 ... "rock"
+    if (randomNumber <= 3) {
+        return "rock";
+    }
+    // ELSE IF random number is <= 6 ... "paper"
+    else if (randomNumber <= 6) {
+        return "paper";
+    }
+    // ELSE ... "scissors"
+    else {
+        return "scissors";
+    }
+}
 
-// // // // Create a new function named getComputerChoice
+//______________________________________________________
 
-// // // // Write the code so that getComputerChoice will 
-// // // // randomly return one of the following string 
-// // // // values: “rock”, “paper” or “scissors”.
+// Create FUNCTION named getHumanChoice
+function getHumanChoice() {
+    // Create a CONST called userInput using window.prompt
+    let userInput = prompt("Rock, paper, or scissors?");
+    // IF userInput = rock ... "rock"
+    if (userInput.toLowerCase() === "rock") {
+        return "rock";
+    }
+    // ELSE IF userInput = paper ... "paper"
+    else if (userInput.toLowerCase() === "paper") {
+        return "paper";
+    }
+    // ElSE IF userInput = scissors ... "scissors"
+    else if (userInput.toLowerCase() === "scissors") {
+        return "scissors";
+    }
+    // ELSE "You'll never be Chuck Norris with that attitude."
+    else {
+        console.log("You'll never be Chuck Norris with that attitude.")
+    }
+}
 
-// // // // // Hint: The Math.random method returns a random number that’s greater than 
-// or equal to 0 and less than 1. 
+//_______________________________________________________
+
+// create a CONST called humanScore with a value of 0
+let humanScore = 0
+//create a CONST called computerScore with a value of 0
+let computerScore = 0
+
+//_______________________________________________________
+
+// Create a FUNCTION named playRound (humanChoice, computerChoice)
+function playRound(humanChoice, computerChoice) {
+    // IF humanSelection === computerSelection
+    if (humanSelection === computerSelection) {
+        //CONSOLE.LOG "A tie is like a hug, it's nice, but it doesn't really solve anything."
+        console.log("A tie is like a hug, it's nice, but it doesn't really solve anything.");
+    }
+    // ELSE IF humanSelection === "rock" &&  computerSelection === "paper"
+    else if (humanSelection === "rock" && computerSelection === "paper") {
+        //CONSOLE.LOG "You lose dude!"
+        computerScore++;
+        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
+    }
+    // ELSE IF humanSelection === "paper" && computerSelection === "scissors"
+    else if (humanSelection === "paper" && computerSelection ==="scissors") {
+        //CONSOLE.LOG "You lose dude!"
+        computerScore++;
+        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
+    }
+    // ELSE IF humanSelection === "scissors" && computerSelection === "rock"
+    else if (humanSelection === "scissors" && computerSelection === "rock") {
+        //CONSOLE.LOG "You lose dude!"
+        computerScore++;
+        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
+    }
+    // ELSE IF humanSelection === "rock" && computerSelection ==="scissors"
+    else if (humanSelection === "rock" && computerSelection === "scissors") {
+        //CONSOLE.LOG "You win dude!"
+        humanScore++;
+        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
+    }
+    // ELSE IF humanSelection === "paper" && computerSelection === "rock"
+    else if (humanSelection === "paper" && computerSelection === "rock") {
+        //CONSOLE.LOG "You win dude!"
+        humanScore++;
+        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
+    }    
+    // ELSE IF humanSelection === "scissors" && computerSelection === "paper"
+    else if (humanSelection === "scissors" && computerSelection === "paper") {
+        //CONSOLE.LOG "You win dude!"
+        humanScore++;
+        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
+    }
+}
+
+// // GLOBAL CONST humanSelection with a value getHumanChoice();
+const humanSelection = getHumanChoice();
+
+// // GLOBAL CONST computerSelection with a value getComputerChoice();
+const computerSelection = getComputerChoice();
+
+// // Call FUNCTION playRound with arguements humanSelection and computerSelection
+playRound(humanSelection, computerSelection);
 
 
-// // // // Test that your function returns what you expect using developer tools.
-
-// // // // _______________________________________________________
 
 
-// // // Create a new function named getHumanChoice.
 
-// // Write the code so that getHumanChoice will return one of the valid 
-// // choices depending on what the user inputs.
-
-// // Hint: Use the prompt method to get the user’s input.
-
-// // Test what your function returns by using console.log.
-
-// // ______________________________________________________
-
-// // Your game will keep track of the players score. You will write variables to keep track of the players score.
-
-// // Create two new variables named humanScore and computerScore in the global scope.
-// // Initialize those variables with the value of 0.
-
-// // ____________________________________________________
-
-// // Your game will be played round by round. You will write a function that 
-// takes the human and computer player choices as arguments, plays a single round, 
-// increments the round winner’s score and logs a winner announcement.
-
-// // Create a new function named playRound.
-// // Define two parameters for playRound: humanChoice and computerChoice. 
-// Use these two parameters to take the human and computer choices as arguments.
-// // Make your function’s humanChoice parameter case-insensitive so 
-// that players can input “rock”, “ROCK”, “RocK”, or other variations.
-// // Write the code for your playRound function to console.log a 
-// string value representing the round winner, such as: “You lose! Paper beats Rock”.
-// // Increment the humanScore or computerScore variable based on the round winner.
-
-// // Example code:
-
-// // function playRound(humanChoice, computerChoice) {
-// //   // your code here!
-// // }
-
-// // const humanSelection = getHumanChoice();
-// // const computerSelection = getComputerChoice();
-
-// // playRound(humanSelection, computerSelection);
-
-// // _________________________________________________________
-
-// // Your game will play 5 rounds. You will write a function named
-// playGame that calls playRound to play 5 rounds, keeps track of the scores and declares a winner at the end.
-
-// // Create a new function named playGame.
-// // Move your playRound function and score 
-// variables so that they’re declared inside of the new playGame function
-// // Play 5 rounds by calling playRound 5 times.
-// // Hint: When you assign a function call to a variable, 
-// the return value of that function is assigned to the variable. 
-// Accessing the variable afterward will only provide the assigned value; 
-// it doesn’t recall the function. You need to recall the choice functions to get new choices for each round.
-// // Re-work your previous functions or create more helper functions if necessary.
-// Specifically, you may want to change the return values to something more useful.
-// // If you already know about loops, you can use them. If not, don’t worry!
-//  Loops will be covered in the next lesson.
