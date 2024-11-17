@@ -1,3 +1,4 @@
+// debugger;
 // Create FUNCTION named getComputerChoice
 function getComputerChoice() {
     // Create a const called randomNumber = Math.floor(Math.random() * 10)
@@ -36,16 +37,14 @@ function getHumanChoice() {
     }
     // ELSE "You'll never be Chuck Norris with that attitude."
     else {
-        var tieGame = console.log("You'll never be Chuck Norris with that attitude.")
-        console.log(tieGame);
+        console.log("You'll never be Chuck Norris with that attitude.");
     }
 }
 
 //_______________________________________________________
 
-function playGame(numRounds) {
-    let humanScore = 0;
-    let computerScore = 0;
+function playGame() {
+
     // Create a FUNCTION named playRound (humanChoice, computerChoice)
     function playRound(humanChoice, computerChoice) {
         // IF humanSelection === computerSelection
@@ -89,16 +88,68 @@ function playGame(numRounds) {
             humanScore++;
             console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
         }
+        currentRound++;
     }
 
-    while (humanScore < 5 && computerScore < 5) {
-        playRound(humanSelection, computerSelection);
+    function roundTwo() {
+        if (currentRound === 2) {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
     }
+
+    function roundThree() {
+        if (currentRound === 3) {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+    }
+
+    function roundFour() {
+        if (currentRound === 4) {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+    }
+
+    function roundFive() {
+        if (currentRound === 5) {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+    }
+
+    function determineWinner() {
+        if (humanScore > computerScore) {
+            alert("Winner winner chicken dinner!");
+        }
+        else if (humanScore === computerScore) {
+            alert("Tie game! Refresh the page to try again dude.")
+        }
+        else {
+            alert("You lose dude!");
+        }
+    }
+
+    playRound(humanSelection, computerSelection);
+    roundTwo();
+    roundThree();
+    roundFour();
+    roundFive();
+    determineWinner();
 }
 
 //_____________________________________________________________
+let humanScore = 0;
+let computerScore = 0;
+let currentRound = 1;
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
 playGame();
