@@ -91,37 +91,80 @@ function playGame() {
         currentRound++;
     }
 
-    function roundTwo() {
-        if (currentRound === 2) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-        }
-    }
+    const buttonContainer = document.createElement("div");
+        document.body.appendChild(buttonContainer);
+            buttonContainer.style.display = "flex";
+            buttonContainer.style.gap = "20px";
+            buttonContainer.style.justifyContent = "center";
+            buttonContainer.style.padding = "20px";
+            buttonContainer.style.backgroundColor = "#0F3642";
+            
 
-    function roundThree() {
-        if (currentRound === 3) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-        }
-    }
+    const buttonOne = document.createElement("button");
+        buttonOne.textContent = "Rock";
+        buttonOne.style.border = "none";
+        buttonOne.style.paddingLeft = "23px";
+        buttonOne.style.paddingRight = "23px";
+        buttonOne.style.color = "white";
+        buttonOne.style.backgroundColor = "#466978";
+        buttonOne.style.borderRadius = "12px";
+    buttonContainer.appendChild(buttonOne);
+    buttonOne.addEventListener("click", getHumanChoice);
+    const buttonTwo = document.createElement("button");
+        buttonTwo.textContent = "Paper";
+        buttonTwo.style.border = "none";
+        buttonTwo.style.paddingLeft = "18px";
+        buttonTwo.style.paddingRight = "18px";
+        buttonTwo.style.color = "white";
+        buttonTwo.style.backgroundColor = "#466978";
+        buttonTwo.style.borderRadius = "12px";
+    buttonContainer.appendChild(buttonTwo);
+    buttonTwo.addEventListener("click", getHumanChoice);
+    const buttonThree = document.createElement("button");
+        buttonThree.textContent = "Scissors";
+        buttonThree.style.border = "none";
+        buttonThree.style.paddingLeft = "12px";
+        buttonThree.style.paddingRight = "12px";
+        buttonThree.style.color = "white";
+        buttonThree.style.backgroundColor = "#466978";
+        buttonThree.style.borderRadius = "12px";
+    buttonContainer.appendChild(buttonThree);
+    buttonThree.addEventListener("click", getHumanChoice);
 
-    function roundFour() {
-        if (currentRound === 4) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-        }
-    }
+    const results = createElement("div");
+        document.body.appendChild(results);
 
-    function roundFive() {
-        if (currentRound === 5) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-        }
-    }
+    // function roundTwo() {
+    //     if (currentRound === 2) {
+    //         humanSelection = getHumanChoice();
+    //         computerSelection = getComputerChoice();
+    //         playRound(humanSelection, computerSelection);
+    //     }
+    // }
+
+    // function roundThree() {
+    //     if (currentRound === 3) {
+    //         humanSelection = getHumanChoice();
+    //         computerSelection = getComputerChoice();
+    //         playRound(humanSelection, computerSelection);
+    //     }
+    // }
+
+    // function roundFour() {
+    //     if (currentRound === 4) {
+    //         humanSelection = getHumanChoice();
+    //         computerSelection = getComputerChoice();
+    //         playRound(humanSelection, computerSelection);
+    //     }
+    // }
+
+    // function roundFive() {
+    //     if (currentRound === 5) {
+    //         humanSelection = getHumanChoice();
+    //         computerSelection = getComputerChoice();
+    //         playRound(humanSelection, computerSelection);
+    //     }
+    // }
 
     function determineWinner() {
         if (humanScore > computerScore) {
@@ -135,12 +178,12 @@ function playGame() {
         }
     }
 
-    playRound(humanSelection, computerSelection);
-    roundTwo();
-    roundThree();
-    roundFour();
-    roundFive();
-    determineWinner();
+    // playRound(humanSelection, computerSelection);
+    // roundTwo();
+    // roundThree();
+    // roundFour();
+    // roundFive();
+    // determineWinner();
 }
 
 //_____________________________________________________________
@@ -149,7 +192,7 @@ let computerScore = 0;
 let currentRound = 1;
 
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+// let humanSelection = getHumanChoice();
+// let computerSelection = getComputerChoice();
 
 playGame();
