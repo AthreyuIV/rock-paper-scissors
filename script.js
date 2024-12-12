@@ -31,8 +31,16 @@ function getHumanChoice(returnValue) {
 
 //_______________________________________________________
 
+
+const gameContainer = document.createElement("div");
+document.body.appendChild(gameContainer);
+gameContainer.style.display = "flex";
+gameContainer.style.flexDirection = "column";
+gameContainer.style.alignItems = "center";
+
 const buttonContainer = document.createElement("div");
-document.body.appendChild(buttonContainer);
+gameContainer.appendChild(buttonContainer);
+buttonContainer.style.maxWidth = "40%";
 buttonContainer.style.display = "flex";
 buttonContainer.style.gap = "20px";
 buttonContainer.style.justifyContent = "center";
@@ -142,38 +150,86 @@ function determineWinner() {
 
 //_____________________________________________________________
 
-const resultsContainer = document.createElement("div"); 
-document.body.appendChild(resultsContainer);
+
+const resultsContainer = document.createElement("div");
+gameContainer.appendChild(resultsContainer);
+resultsContainer.style.minWidth = "60%";
+resultsContainer.style.height = "150px";
 resultsContainer.style.display = "flex";
 resultsContainer.style.justifyContent = "space-around";
-resultsContainer.style.padding = "20px";
+resultsContainer.style.alignItems = "center";
+resultsContainer.style.padding = "10px";
 resultsContainer.style.backgroundColor = "#0F3642";
 resultsContainer.style.margin = "20px";
 resultsContainer.style.borderRadius = "12px";
 
 const humanResults = document.createElement("div");
 resultsContainer.appendChild(humanResults);
-humanResults.textContent = "Your Score";
+humanResults.style.maxHeight = "25px";
 humanResults.style.paddingTop = "10px";
 humanResults.style.paddingBottom = "40px";
 humanResults.style.paddingLeft = "10px";
 humanResults.style.paddingRight = "10px";
 humanResults.style.borderRadius = "12px";
-humanResults.style.color = "white";
 humanResults.style.backgroundColor = "#466978";
-humanResults.style.fontFamily = "Arial, sans-serif";
+
+const YourScore = document.createElement("div");
+humanResults.appendChild(YourScore);
+YourScore.textContent = "Your Score";
+YourScore.style.color = "white";
+YourScore.style.fontFamily = "Arial, sans-serif";
+
+const playerScoreBox = document.createElement("div");
+humanResults.appendChild(playerScoreBox);
+playerScoreBox.textContent = "0";
+playerScoreBox.style.color = "white";
+playerScoreBox.style.fontFamily = "Arial, sans-serif";
+playerScoreBox.style.paddingTop = "10px";
+playerScoreBox.style.textAlign = "center";
+
+const roundOutcome = document.createElement("div");
+resultsContainer.appendChild(roundOutcome);
+roundOutcome.style.display = "flex";
+roundOutcome.style.flexDirection = "column";
+roundOutcome.style.alignItems = "center";
+roundOutcome.style.justifyContent = "start";
+roundOutcome.style.width = "50%";
+roundOutcome.style.height = "150px";
+
+const displayResults = document.createElement("div");
+roundOutcome.appendChild(displayResults);
+displayResults.textContent = "No, I'm Batman!";
+displayResults.style.padding = "6px";
+displayResults.style.borderRadius = "12px";
+displayResults.style.width = "100%";
+displayResults.style.backgroundColor = "#466978";
+displayResults.style.textAlign = "center";
+displayResults.style.color = "white";
+displayResults.style.fontFamily = "Arial, sans-serif";
 
 const computerResults = document.createElement("div");
 resultsContainer.appendChild(computerResults);
-computerResults.textContent = "Rival Score";
+computerResults.style.maxHeight = "25px";
 computerResults.style.paddingTop = "10px";
 computerResults.style.paddingBottom = "40px";
 computerResults.style.paddingLeft = "10px";
 computerResults.style.paddingRight = "10px";
 computerResults.style.borderRadius = "12px";
-computerResults.style.color = "white";
 computerResults.style.backgroundColor = "#466978";
-computerResults.style.fontFamily = "Arial, sans-serif";
+
+const rivalScore = document.createElement("div");
+computerResults.appendChild(rivalScore);
+rivalScore.textContent = "Rival Score";
+rivalScore.style.color = "white";
+rivalScore.style.fontFamily = "Arial, sans-serif";
+
+const computerScoreBox = document.createElement("div");
+computerResults.appendChild(computerScoreBox);
+computerScoreBox.textContent = "0";
+computerScoreBox.style.color = "white";
+computerScoreBox.style.fontFamily = "Arial, sans-serif";
+computerScoreBox.style.paddingTop = "10px";
+computerScoreBox.style.textAlign = "center";
 
 //_____________________________________________________________
 
