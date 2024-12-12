@@ -1,4 +1,13 @@
 // debugger;
+let humanScore = 0;
+let computerScore = 0;
+let currentRound = 1;
+
+let computerSelection = null;
+let humanSelection = null;
+
+//________________________________________________________
+
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 10);
     if (randomNumber <= 3) {
@@ -105,34 +114,39 @@ buttonThree.addEventListener("click", function () {
 
 function playRound(humanChoice, computerChoice) {
     if (humanSelection === computerSelection) {
-        console.log("A tie is like a hug, it's nice, but it doesn't really solve anything.");
+        alert("A tie is like a hug, it's nice, but it doesn't really solve anything.");
     }
     else if (humanSelection === "rock" && computerSelection === "paper") {
         computerScore++;
+        computerScoreBox.textContent = computerScore;
         console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "paper" && computerSelection === "scissors") {
-        //CONSOLE.LOG "You lose dude!"
         computerScore++;
+        computerScoreBox.textContent = computerScore;
         console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "scissors" && computerSelection === "rock") {
-        //CONSOLE.LOG "You lose dude!"
         computerScore++;
+        computerScoreBox.textContent = computerScore;
         console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "rock" && computerSelection === "scissors") {
         humanScore++;
+        playerScoreBox.textContent = humanScore;
         console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
     else if (humanSelection === "paper" && computerSelection === "rock") {
         humanScore++;
+        playerScoreBox.textContent = humanScore;
         console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
     else if (humanSelection === "scissors" && computerSelection === "paper") {
         humanScore++;
+        playerScoreBox.textContent = humanScore;
         console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
+    determineWinner();
     currentRound++;
 }
 
@@ -144,7 +158,7 @@ function determineWinner() {
         alert("Winner winner chicken dinner!");
     }
     else if (computerScore === 5) {
-        alert("Tie game! Refresh the page to try again dude.")
+        alert("You lose, dude!");
     }
 }
 
@@ -181,7 +195,7 @@ YourScore.style.fontFamily = "Arial, sans-serif";
 
 const playerScoreBox = document.createElement("div");
 humanResults.appendChild(playerScoreBox);
-playerScoreBox.textContent = "0";
+playerScoreBox.textContent = humanScore;
 playerScoreBox.style.color = "white";
 playerScoreBox.style.fontFamily = "Arial, sans-serif";
 playerScoreBox.style.paddingTop = "10px";
@@ -233,9 +247,4 @@ computerScoreBox.style.textAlign = "center";
 
 //_____________________________________________________________
 
-let humanScore = 0;
-let computerScore = 0;
-let currentRound = 1;
 
-let computerSelection = null;
-let humanSelection = null;
