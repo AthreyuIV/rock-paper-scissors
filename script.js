@@ -1,4 +1,5 @@
 // debugger;
+
 let humanScore = 0;
 let computerScore = 0;
 let currentRound = 1;
@@ -39,7 +40,6 @@ function getHumanChoice(returnValue) {
 }
 
 //_______________________________________________________
-
 
 const gameContainer = document.createElement("div");
 document.body.appendChild(gameContainer);
@@ -109,7 +109,6 @@ buttonThree.addEventListener("click", function () {
     playRound(humanSelection, computerSelection);
 });
 
-
 //_______________________________________________________
 
 function playRound(humanChoice, computerChoice) {
@@ -119,32 +118,26 @@ function playRound(humanChoice, computerChoice) {
     else if (humanSelection === "rock" && computerSelection === "paper") {
         computerScore++;
         computerScoreBox.textContent = computerScore;
-        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "paper" && computerSelection === "scissors") {
         computerScore++;
         computerScoreBox.textContent = computerScore;
-        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "scissors" && computerSelection === "rock") {
         computerScore++;
         computerScoreBox.textContent = computerScore;
-        console.log("You lose dude, " + computerSelection + " beats " + humanSelection + ".");
     }
     else if (humanSelection === "rock" && computerSelection === "scissors") {
         humanScore++;
         playerScoreBox.textContent = humanScore;
-        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
     else if (humanSelection === "paper" && computerSelection === "rock") {
         humanScore++;
         playerScoreBox.textContent = humanScore;
-        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
     else if (humanSelection === "scissors" && computerSelection === "paper") {
         humanScore++;
         playerScoreBox.textContent = humanScore;
-        console.log("You win dude, " + humanSelection + " beats " + computerSelection + ".");
     }
     determineWinner();
     currentRound++;
@@ -156,9 +149,11 @@ function playRound(humanChoice, computerChoice) {
 function determineWinner() {
     if (humanScore === 5) {
         alert("Winner winner chicken dinner!");
+        location.reload();
     }
     else if (computerScore === 5) {
         alert("You lose, dude!");
+        location.reload();
     }
 }
 
@@ -246,5 +241,3 @@ computerScoreBox.style.paddingTop = "10px";
 computerScoreBox.style.textAlign = "center";
 
 //_____________________________________________________________
-
-
